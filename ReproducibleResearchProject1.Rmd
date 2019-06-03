@@ -3,9 +3,9 @@ title: "ReproducibleResearchProject1"
 author: "XiaoyanZhang"
 date: "6/2/2019"
 output: html_document
-
 ---
 
+## Set up the entire Rmd
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
