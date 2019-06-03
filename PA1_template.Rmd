@@ -53,6 +53,13 @@ result2 <- summarize(group_by(data, interval), mean = mean(steps, na.rm = TRUE))
 with(result2, plot(interval, mean, type = "l", xlab = "5-minute interval", ylab = "Average number of steps"))
 ```
 
+3. Report the 5-minute interval which contains the maximum number of steps.
+
+```{r}
+result2[result2$mean == max(result2$mean),]$interval
+
+```
+
 ## Imputing missing values
 
 1. Calculate the total number of missing values in the dataset.

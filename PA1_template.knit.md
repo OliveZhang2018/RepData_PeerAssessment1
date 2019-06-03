@@ -33,7 +33,7 @@ result1 <- summarise(group_by(data, date), total = sum(steps, na.rm = TRUE))
 hist(result1$total, xlab = "Number of steps", main = "Histogram of total number of steps taken each day")
 ```
 
-<img src="PA1_template_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<img src="PA1_template_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 3. Calculate the mean and median of the total number of steps taken per day.
 
@@ -70,7 +70,18 @@ result2 <- summarize(group_by(data, interval), mean = mean(steps, na.rm = TRUE))
 with(result2, plot(interval, mean, type = "l", xlab = "5-minute interval", ylab = "Average number of steps"))
 ```
 
-<img src="PA1_template_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<img src="PA1_template_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+
+3. Report the 5-minute interval which contains the maximum number of steps.
+
+
+```r
+result2[result2$mean == max(result2$mean),]$interval
+```
+
+```
+## [1] 835
+```
 
 ## Imputing missing values
 
@@ -107,7 +118,7 @@ result3 <- summarise(group_by(data2, date), total = sum(steps, na.rm = TRUE))
 hist(result3$total, xlab = "Number of steps", main = "Histogram of total number of steps taken each day after imputing missing data")
 ```
 
-<img src="PA1_template_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<img src="PA1_template_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 ```r
 mean(result3$total)
@@ -158,4 +169,4 @@ library(ggplot2)
 ggplot(result4, aes(x = interval, y = mean)) + geom_line() + facet_grid(.~ day) + labs(x = "5-minute interval", y = "Average number of steps")
 ```
 
-<img src="PA1_template_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<img src="PA1_template_files/figure-html/unnamed-chunk-14-1.png" width="672" />
